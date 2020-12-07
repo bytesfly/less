@@ -11,6 +11,8 @@
 
     <modules>
         <module>less-base</module>
+        <module>less-alibaba/less-testable</module>
+        <module>less-spring</module>
     </modules>
 
     <properties>
@@ -27,6 +29,9 @@
         <lombok.version>1.18.16</lombok.version>
         <junit5.version>5.7.0</junit5.version>
         <logback.version>1.2.3</logback.version>
+
+        <!-- alibaba -->
+        <testable.version>0.3.0</testable.version>
     </properties>
 
     <repositories>
@@ -38,10 +43,35 @@
                 <enabled>true</enabled>
             </releases>
             <snapshots>
-                <enabled>false</enabled>
+                <enabled>true</enabled>
             </snapshots>
         </repository>
     </repositories>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.alibaba.testable</groupId>
+            <artifactId>testable-agent</artifactId>
+            <version>${testable.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.testable</groupId>
+            <artifactId>testable-processor</artifactId>
+            <version>${testable.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit5.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
 
 
     <dependencyManagement>

@@ -8,6 +8,7 @@ import feign.jackson.JacksonEncoder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 
@@ -49,6 +50,7 @@ public class WeatherExample {
     @Getter
     @Setter
     @NoArgsConstructor
+    @Accessors(chain = true)
     public static class Response {
         private String message;
         private int status;
@@ -61,6 +63,7 @@ public class WeatherExample {
     @Getter
     @Setter
     @NoArgsConstructor
+    @Accessors(chain = true)
     public static class CityInfo {
         private String city;
         private String citykey;
@@ -71,6 +74,7 @@ public class WeatherExample {
     @Getter
     @Setter
     @NoArgsConstructor
+    @Accessors(chain = true)
     public static class Data {
         private String shidu;
         private int pm25;
@@ -85,6 +89,7 @@ public class WeatherExample {
     @Getter
     @Setter
     @NoArgsConstructor
+    @Accessors(chain = true)
     public static class Forecast {
         private String date;
         private String high;
