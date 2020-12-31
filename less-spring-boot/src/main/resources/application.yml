@@ -1,0 +1,76 @@
+server:
+  port: 11111
+  servlet.context-path: /
+
+spring:
+  application:
+    name: less
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
+
+  datasource:
+    url: jdbc:h2:mem:lessdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=true;DATABASE_TO_UPPER=false;MODE=MYSQL
+    username:
+    password:
+    # JDBC使用Druid连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+    # Druid连接池配置信息
+    druid:
+      # 初始化连接池数量
+      initial-size: 1
+      # 最小连接池数量
+      min-idle: 1
+      # 最大连接池数量
+      maxActive: 6
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 30000
+      # 用来检测连接是否有效，要求是一个查询语句。
+      validationQuery: SELECT 1
+      # 连接空闲时执行validationQuery检测(是否空闲根据timeBetweenEvictionRunsMillis等判断)
+      testWhileIdle: true
+      # 申请连接时执行validationQuery检测
+      testOnBorrow: false
+      # 归还连接时执行validationQuery检测
+      testOnReturn: false
+
+  flyway:
+    enabled: false
+    table: less_flyway_schema_history
+    ignore-missing-migrations: true
+    ignore-ignored-migrations: true
+    ignore-pending-migrations: true
+    baseline-on-migrate: true
+    baseline-version: 1.0.0
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss.SSS
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+
+spring.http.encoding.charset: UTF-8
+spring.http.encoding.enabled: true
+spring.http.encoding.force: true
+
+# 开启druid监控
+#spring.datasource.druid.web-stat-filter.enabled: true
+#spring.datasource.druid.web-stat-filter.session-stat-enable: true
+
+#spring.datasource.druid.stat-view-servlet.enabled: true
+#spring.datasource.druid.stat-view-servlet.url-pattern: /druid/*
+#spring.datasource.druid.stat-view-servlet.reset-enable: false
+#spring.datasource.druid.stat-view-servlet.login-username: admin
+#spring.datasource.druid.stat-view-servlet.login-password: admin
+
+#spring.datasource.connectionProperties.druid.stat.mergeSql: true
+#spring.datasource.connectionProperties.druid.stat.slowSqlMillis: 3000
+#spring.datasource.druid.filter.stat.enabled: true
+#spring.datasource.druid.filter.wall.enabled: true
+
+#logging:
+#  level:
+#    com.github.itwild.less.springboot.mapper: debug

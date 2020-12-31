@@ -12,7 +12,8 @@
     <modules>
         <module>less-base</module>
         <module>less-alibaba/less-testable</module>
-        <module>less-spring</module>
+        <module>less-spring-boot</module>
+        <module>less-leetcode</module>
     </modules>
 
     <properties>
