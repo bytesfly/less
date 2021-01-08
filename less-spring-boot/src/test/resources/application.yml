@@ -11,16 +11,16 @@ spring:
       max-request-size: -1
 
   datasource:
-    url: jdbc:h2:mem:lessdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=true;DATABASE_TO_UPPER=false;MODE=MYSQL
+    url: jdbc:h2:mem:lessdb-test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=true;DATABASE_TO_UPPER=false;MODE=MYSQL
     username:
     password:
+    # JDBC使用Druid连接池
+    type: com.alibaba.druid.pool.DruidDataSource
     schema:
       - classpath:schema.sql
     data:
       - classpath:data.sql
     initialization-mode: embedded
-    # JDBC使用Druid连接池
-    type: com.alibaba.druid.pool.DruidDataSource
     # Druid连接池配置信息
     druid:
       # 初始化连接池数量

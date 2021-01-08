@@ -28,11 +28,12 @@
         <feign.core.version>11.0</feign.core.version>
         <retrofit.version>2.9.0</retrofit.version>
         <lombok.version>1.18.16</lombok.version>
+        <junit.version>4.13.1</junit.version>
         <junit5.version>5.7.0</junit5.version>
         <logback.version>1.2.3</logback.version>
 
         <!-- alibaba -->
-        <testable.version>0.3.0</testable.version>
+        <testable.version>0.4.8</testable.version>
     </properties>
 
     <repositories>
@@ -50,27 +51,6 @@
     </repositories>
 
     <dependencies>
-
-        <dependency>
-            <groupId>com.alibaba.testable</groupId>
-            <artifactId>testable-agent</artifactId>
-            <version>${testable.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba.testable</groupId>
-            <artifactId>testable-processor</artifactId>
-            <version>${testable.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit5.version}</version>
-            <scope>test</scope>
-        </dependency>
 
     </dependencies>
 
